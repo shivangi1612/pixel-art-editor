@@ -75,7 +75,7 @@ function App() {
           animate={{ y: 0 }}
           className="text-2xl md:text-4xl font-normal text-white mb-8 text-center"
         >
-        <marquee>Pixel Art Editor</marquee>
+        Pixel Art Editor
         </motion.h1>
         
         <div className="flex flex-col md:flex-row gap-8 items-start justify-center opacity-90">
