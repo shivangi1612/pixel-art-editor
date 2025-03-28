@@ -69,44 +69,46 @@ function App() {
       animate={{ opacity: 1 }}
       className="min-h-screen bg-[url(/src/assets/image.jpg)] bg-auto md:bg-cover bg-no-repeat p-8"
     >
-      <div className="max-w-7xl mx-auto ">
+      <div className="max-w-7xl mx-auto">
         <motion.h1
           initial={{ y: -20 }}
           animate={{ y: 0 }}
           className="text-2xl md:text-4xl font-normal text-white mb-8 text-center"
         >
-        Pixel Art Editor
+          Pixel Art Editor
         </motion.h1>
         
-        <div className="flex flex-col md:flex-row gap-8 items-start justify-center opacity-90">
-          <Toolbar
-            selectedColor={selectedColor}
-            setSelectedColor={setSelectedColor}
-            tool={tool}
-            setTool={setTool}
-            onUndo={handleUndo}
-            onRedo={handleRedo}
-            canUndo={historyIndex > 0}
-            canRedo={historyIndex < history.length - 1}
-            onSave={handleSave}
-            onDownload={handleDownload}
-            brushSize={brushSize}
-            setBrushSize={setBrushSize}
-            onShowGallery={() => setShowGallery(true)}
-          />
-          
-          <Canvas
-            selectedColor={selectedColor}
-            tool={tool}
-            canvasSize={canvasSize}
-            pixelSize={pixelSize}
-            onUpdateHistory={handleUpdateHistory}
-            historyState={history[historyIndex]}
-            historyIndex={historyIndex}
-            brushSize={brushSize}
-          />
-        </div>
-      </div>
+        <div className="flex flex-col md:flex-row gap-4 items-center md:items-start justify-center opacity-90 w-full overflow-hidden">
+  <Toolbar
+    selectedColor={selectedColor}
+    setSelectedColor={setSelectedColor}
+    tool={tool}
+    setTool={setTool}
+    onUndo={handleUndo}
+    onRedo={handleRedo}
+    canUndo={historyIndex > 0}
+    canRedo={historyIndex < history.length - 1}
+    onSave={handleSave}
+    onDownload={handleDownload}
+    brushSize={brushSize}
+    setBrushSize={setBrushSize}
+    onShowGallery={() => setShowGallery(true)}
+    className="w-full md:w-[200px] max-w-[90%] max-h-[70vh] overflow-auto p-4 bg-black/80 rounded-lg"
+  />
+
+  <Canvas
+    selectedColor={selectedColor}
+    tool={tool}
+    canvasSize={canvasSize}
+    pixelSize={pixelSize}
+    onUpdateHistory={handleUpdateHistory}
+    historyState={history[historyIndex]}
+    historyIndex={historyIndex}
+    brushSize={brushSize}
+    className="w-full md:w-auto max-w-[512px] rounded-lg shadow-md p-2 "
+  />
+</div>
+  </div>
 
       <AnimatePresence>
         {showGallery && (
